@@ -1,0 +1,16 @@
+.job-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.job-list__empty {
+  padding: 2rem;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 1rem;
+  color: #475467;
+  border: 1px dashed #cfd8e3;
+}
+
+
+

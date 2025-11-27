@@ -1,0 +1,61 @@
+.saved-jobs {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid #e4e7ec;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+}
+
+.saved-jobs__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.saved-jobs__header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.saved-jobs__header span {
+  border-radius: 999px;
+  padding: 0.15rem 0.75rem;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-weight: 600;
+}
+
+.saved-jobs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.saved-jobs li {
+  border: 1px solid #f1f5f9;
+  border-radius: 0.85rem;
+  padding: 0.75rem;
+}
+
+.saved-jobs li p {
+  margin: 0;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.saved-jobs li small {
+  color: #475467;
+}
+
+.saved-jobs__empty {
+  margin: 0;
+  color: #94a3b8;
+}
+
+
+

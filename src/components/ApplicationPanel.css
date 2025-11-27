@@ -1,0 +1,88 @@
+.application-panel {
+  position: sticky;
+  top: 1.5rem;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.35);
+}
+
+.application-panel__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.application-panel__header .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: #a5b4fc;
+}
+
+.application-panel__header h3 {
+  margin: 0.3rem 0 0;
+}
+
+.application-panel__header button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.application-panel__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.application-panel__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #dbeafe;
+}
+
+.application-panel__form input,
+.application-panel__form textarea {
+  border-radius: 0.75rem;
+  border: none;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.application-panel__form textarea {
+  resize: vertical;
+}
+
+.application-panel__status {
+  background: rgba(15, 118, 110, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.application-panel__form button {
+  margin-top: 0.3rem;
+  border: none;
+  border-radius: 0.85rem;
+  padding: 0.85rem;
+  background: #22d3ee;
+  color: #0f172a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+
