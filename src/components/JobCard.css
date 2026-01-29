@@ -95,17 +95,49 @@
 .job-card__actions button:first-of-type {
   background: #0f172a;
   color: #fff;
+  flex: 1;
+}
+
+.job-card__actions button:first-of-type:hover {
+  background: #1e293b;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.3);
+}
+
+.job-card__actions button:first-of-type:focus {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .job-card__actions button.ghost {
   background: transparent;
   border: 1px solid #cbd5f5;
   color: #0f172a;
+  flex: 1;
+}
+
+.job-card__actions button.ghost:hover {
+  background: #f8fafc;
+  border-color: #a5b4fc;
+}
+
+.job-card__actions button.ghost:focus {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .job-card__actions button.saved {
   background: #dcfce7;
   color: #15803d;
+  flex: 1;
+}
+
+.job-card__actions button.saved:hover {
+  background: #c6f6d5;
+}
+
+.job-card__actions button.saved:focus {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
 
