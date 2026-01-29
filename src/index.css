@@ -102,3 +102,4 @@ textarea:focus:not(:focus-visible) {
 
 button, a, input {
   transition: all 0.2s ease;
+}
