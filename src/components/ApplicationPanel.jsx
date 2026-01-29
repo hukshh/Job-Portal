@@ -20,8 +20,31 @@ export const ApplicationPanel = ({
     }));
   };
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    
+    // Validate name
+    if (!formValues.name.trim()) {
+      alert('Please enter your full name.');
+      return;
+    }
+    
+    // Validate email format
+    if (!formValues.email.trim()) {
+      alert('Please enter your email address.');
+      return;
+    }
+    
+    if (!validateEmail(formValues.email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    
     const success = onSubmit(formValues);
     if (success) {
       setFormValues({ name: '', email: '', note: '' });
