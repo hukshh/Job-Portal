@@ -37,6 +37,17 @@
   border-radius: 999px;
   font-size: 1.2rem;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.application-panel__header button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.application-panel__header button:focus {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
 }
 
 .application-panel__form {
@@ -56,10 +67,18 @@
 .application-panel__form input,
 .application-panel__form textarea {
   border-radius: 0.75rem;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.75rem 0.9rem;
   font-size: 1rem;
   color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.application-panel__form input:focus,
+.application-panel__form textarea:focus {
+  outline: none;
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
 }
 
 .application-panel__form textarea {
@@ -82,6 +101,17 @@
   color: #0f172a;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.application-panel__form button:hover {
+  background: #06b6d4;
+  box-shadow: 0 8px 16px rgba(34, 211, 238, 0.3);
+}
+
+.application-panel__form button:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 
