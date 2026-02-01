@@ -81,3 +81,10 @@ export const jobOpenings = [
 
 
 
+
+// TODO: pull these from an API eventually — for now hardcoded is fine
+export const featuredCompanies = [
+  'Bright Labs',
+  'Northwind Studio',
+  'Sierra Systems',
+];
