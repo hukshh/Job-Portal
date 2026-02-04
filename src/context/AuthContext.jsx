@@ -1,6 +1,9 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { storage } from '../utils/storage';
 
 export const AuthContext = createContext();
+
+const USER_KEY = 'jobPortalUser';
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -8,20 +11,15 @@ export const AuthProvider = ({ children }) => {
 
   // Load user from localStorage on mount
   useEffect(() => {
-    const savedUser = localStorage.getItem('jobPortalUser');
+    const savedUser = storage.get(USER_KEY);
     if (savedUser) {
-      try {
-        setUser(JSON.parse(savedUser));
-      } catch (error) {
-        console.error('Error loading user from localStorage:', error);
-        localStorage.removeItem('jobPortalUser');
-      }
+      setUser(savedUser);
     }
     setLoading(false);
   }, []);
 
   const login = (email, password) => {
-    // Simple authentication - in real app, this would call a backend
+    // Simple auth — real impl would call a backend API
     if (email && password.length >= 6) {
       const userData = {
         id: Date.now(),
@@ -31,13 +29,13 @@ export const AuthProvider = ({ children }) => {
           phone: '',
           location: '',
           headline: '',
-          bio: ''
+          bio: '',
         },
         resume: null,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
       };
       setUser(userData);
-      localStorage.setItem('jobPortalUser', JSON.stringify(userData));
+      storage.set(USER_KEY, userData);
       return userData;
     }
     throw new Error('Invalid credentials');
@@ -45,29 +43,23 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('jobPortalUser');
+    storage.remove(USER_KEY);
   };
 
   const updateProfile = (profileData) => {
     const updatedUser = {
       ...user,
-      profile: {
-        ...user.profile,
-        ...profileData
-      }
+      profile: { ...user.profile, ...profileData },
     };
     setUser(updatedUser);
-    localStorage.setItem('jobPortalUser', JSON.stringify(updatedUser));
+    storage.set(USER_KEY, updatedUser);
     return updatedUser;
   };
 
   const updateResume = (resumeData) => {
-    const updatedUser = {
-      ...user,
-      resume: resumeData
-    };
+    const updatedUser = { ...user, resume: resumeData };
     setUser(updatedUser);
-    localStorage.setItem('jobPortalUser', JSON.stringify(updatedUser));
+    storage.set(USER_KEY, updatedUser);
     return updatedUser;
   };
 
@@ -80,7 +72,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         updateProfile,
         updateResume,
-        isAuthenticated: !!user
+        isAuthenticated: !!user,
       }}
     >
       {children}
