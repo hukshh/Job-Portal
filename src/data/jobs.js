@@ -11,6 +11,7 @@ export const jobOpenings = [
     tags: ['React', 'TypeScript', 'UI'],
     description:
       'Own core UI flows, build accessible components, and partner with design to ship polished product improvements.',
+    postedAt: '2026-01-28',
   },
   {
     id: 'job-2',
@@ -24,6 +25,7 @@ export const jobOpenings = [
     tags: ['Figma', 'Design Systems', 'Research'],
     description:
       'Shape the end-to-end experience for our candidate journey product and coach junior designers.',
+    postedAt: '2026-01-25',
   },
   {
     id: 'job-3',
@@ -37,6 +39,7 @@ export const jobOpenings = [
     tags: ['People Ops', 'Analytics'],
     description:
       'Support candidate screening, maintain hiring dashboards, and learn structured interview practices.',
+    postedAt: '2026-01-30',
   },
   {
     id: 'job-4',
@@ -50,6 +53,7 @@ export const jobOpenings = [
     tags: ['Node.js', 'APIs', 'PostgreSQL'],
     description:
       'Build resilient APIs, improve platform reliability, and collaborate closely with product squads.',
+    postedAt: '2026-01-27',
   },
   {
     id: 'job-5',
@@ -63,6 +67,7 @@ export const jobOpenings = [
     tags: ['Campaigns', 'SQL', 'Dashboards'],
     description:
       'Review campaign performance, craft growth experiments, and present concise readouts to stakeholders.',
+    postedAt: '2026-01-29',
   },
   {
     id: 'job-6',
@@ -76,11 +81,37 @@ export const jobOpenings = [
     tags: ['Python', 'Automation', 'Testing'],
     description:
       'Pair with mentors to automate QA workflows, write test utilities, and demo findings each sprint.',
+    postedAt: '2026-01-28',
+  },
+  {
+    id: 'job-7',
+    title: 'DevOps Engineer',
+    company: 'CloudMesh',
+    location: 'Remote',
+    mode: 'Remote',
+    type: 'Full-time',
+    level: 'Senior',
+    salary: '$120k - $150k',
+    tags: ['AWS', 'Docker', 'CI/CD'],
+    description:
+      'Own cloud infrastructure, streamline deployment pipelines, and improve observability across services.',
+    postedAt: '2026-02-01',
+  },
+  {
+    id: 'job-8',
+    title: 'Data Analyst',
+    company: 'Metric Tree',
+    location: 'San Francisco, CA',
+    mode: 'Hybrid',
+    type: 'Full-time',
+    level: 'Junior',
+    salary: '$75k - $90k',
+    tags: ['SQL', 'Python', 'Tableau'],
+    description:
+      'Translate raw data into clear insights — build dashboards, run ad-hoc analyses, and present findings weekly.',
+    postedAt: '2026-02-03',
   },
 ];
-
-
-
 
 // TODO: pull these from an API eventually — for now hardcoded is fine
 export const featuredCompanies = [
