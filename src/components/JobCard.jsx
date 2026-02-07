@@ -1,3 +1,4 @@
+import { timeAgo } from '../utils/dateUtils';
 import './JobCard.css';
 
 export const JobCard = ({ job, onApply, onSave, isSaved }) => (
@@ -25,6 +26,10 @@ export const JobCard = ({ job, onApply, onSave, isSaved }) => (
       ))}
     </div>
 
+    {job.postedAt && (
+      <p className="job-card__posted">Posted {timeAgo(job.postedAt)}</p>
+    )}
+
     <div className="job-card__actions">
       <button type="button" onClick={() => onApply(job)}>
         Apply
@@ -34,11 +39,8 @@ export const JobCard = ({ job, onApply, onSave, isSaved }) => (
         className={isSaved ? 'saved' : 'ghost'}
         onClick={() => onSave(job.id)}
       >
-        {isSaved ? 'Saved' : 'Save'}
+        {isSaved ? '✓ Saved' : 'Save'}
       </button>
     </div>
   </article>
 );
-
-
-

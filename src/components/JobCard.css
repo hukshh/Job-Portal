@@ -142,3 +142,9 @@
 
 
 
+
+.job-card__posted {
+  font-size: 0.75rem;
+  color: var(--text-muted, #888);
+  margin: 0 0 0.5rem;
+}
