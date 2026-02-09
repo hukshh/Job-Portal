@@ -1,11 +1,15 @@
 import { useMemo, useState } from 'react';
+import { useLocalStorage } from './useLocalStorage';
 
 export const useJobPortal = (initialJobs = []) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [jobType, setJobType] = useState('All');
-  const [savedJobIds, setSavedJobIds] = useState(() => new Set());
+  // persist saved jobs so they survive a page refresh
+  const [savedJobIds, setSavedJobIds] = useLocalStorage('savedJobs', []);
   const [applyingJob, setApplyingJob] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
+
+  const savedIdSet = useMemo(() => new Set(savedJobIds), [savedJobIds]);
 
   const filteredJobs = useMemo(() => {
     const term = searchTerm.trim().toLowerCase();
@@ -30,13 +34,11 @@ export const useJobPortal = (initialJobs = []) => {
 
   const toggleSaveJob = (jobId) => {
     setSavedJobIds((current) => {
-      const next = new Set(current);
-      if (next.has(jobId)) {
-        next.delete(jobId);
-      } else {
-        next.add(jobId);
+      const currentArr = Array.isArray(current) ? current : [];
+      if (currentArr.includes(jobId)) {
+        return currentArr.filter((id) => id !== jobId);
       }
-      return next;
+      return [...currentArr, jobId];
     });
   };
 
@@ -52,7 +54,7 @@ export const useJobPortal = (initialJobs = []) => {
     }
 
     const trimmedNote = note.trim();
-    const noteCopy = trimmedNote ? ` We noted: “${trimmedNote}”.` : '';
+    const noteCopy = trimmedNote ? ` We noted: "${trimmedNote}".` : '';
 
     setStatusMessage(
       `Thanks ${name}, your interest in ${applyingJob?.title} has been shared.${noteCopy}`
@@ -65,7 +67,7 @@ export const useJobPortal = (initialJobs = []) => {
     setStatusMessage('');
   };
 
-  const savedJobs = initialJobs.filter((job) => savedJobIds.has(job.id));
+  const savedJobs = initialJobs.filter((job) => savedIdSet.has(job.id));
 
   return {
     searchTerm,
@@ -82,4 +84,3 @@ export const useJobPortal = (initialJobs = []) => {
     statusMessage,
   };
 };
-
