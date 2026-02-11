@@ -1,27 +1,24 @@
+import { EmptyState } from './EmptyState';
 import './SavedJobsPanel.css';
 
 export const SavedJobsPanel = ({ jobs }) => (
-  <section className="saved-jobs">
-    <div className="saved-jobs__header">
-      <h4>Saved roles</h4>
-      <span>{jobs.length}</span>
-    </div>
-    {jobs.length ? (
-      <ul>
+  <aside className="saved-jobs-panel">
+    <h4 className="saved-jobs-panel__heading">Saved Jobs</h4>
+    {jobs.length === 0 ? (
+      <EmptyState
+        icon="🔖"
+        title="Nothing saved yet"
+        message="Hit Save on any listing to keep it here."
+      />
+    ) : (
+      <ul className="saved-jobs-panel__list">
         {jobs.map((job) => (
           <li key={job.id}>
-            <p>{job.title}</p>
-            <small>{job.company}</small>
+            <strong>{job.title}</strong>
+            <span>{job.company}</span>
           </li>
         ))}
       </ul>
-    ) : (
-      <p className="saved-jobs__empty">
-        Star roles you like and they will show up here.
-      </p>
     )}
-  </section>
+  </aside>
 );
-
-
-
