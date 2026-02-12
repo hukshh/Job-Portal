@@ -59,3 +59,24 @@
 
 
 
+
+.saved-jobs-panel__list li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border, #eee);
+  font-size: 0.875rem;
+}
+
+.saved-jobs-panel__list li:last-child {
+  border-bottom: none;
+}
+
+.saved-jobs-panel__list li strong {
+  color: var(--text-primary, #222);
+}
+
+.saved-jobs-panel__list li span {
+  color: var(--text-muted, #888);
+  font-size: 0.8rem;
+}
