@@ -1,18 +1,21 @@
 import { useMemo, useState } from 'react';
 import { useLocalStorage } from './useLocalStorage';
+import { useDebounce } from './useDebounce';
 
 export const useJobPortal = (initialJobs = []) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [jobType, setJobType] = useState('All');
-  // persist saved jobs so they survive a page refresh
   const [savedJobIds, setSavedJobIds] = useLocalStorage('savedJobs', []);
   const [applyingJob, setApplyingJob] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
 
+  // debounce search so filtering isn't thrashing on every keystroke
+  const debouncedSearch = useDebounce(searchTerm, 250);
+
   const savedIdSet = useMemo(() => new Set(savedJobIds), [savedJobIds]);
 
   const filteredJobs = useMemo(() => {
-    const term = searchTerm.trim().toLowerCase();
+    const term = debouncedSearch.trim().toLowerCase();
     return initialJobs.filter((job) => {
       const matchesTerm =
         !term ||
@@ -30,7 +33,7 @@ export const useJobPortal = (initialJobs = []) => {
 
       return matchesTerm && matchesType;
     });
-  }, [initialJobs, jobType, searchTerm]);
+  }, [initialJobs, jobType, debouncedSearch]);
 
   const toggleSaveJob = (jobId) => {
     setSavedJobIds((current) => {
