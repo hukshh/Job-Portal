@@ -1,5 +1,14 @@
+import { Badge } from './Badge';
 import { timeAgo } from '../utils/dateUtils';
 import './JobCard.css';
+
+const TYPE_VARIANT = {
+  'Full-time': 'success',
+  'Part-time': 'info',
+  'Contract': 'warning',
+  'Internship': 'default',
+  'Remote': 'info',
+};
 
 export const JobCard = ({ job, onApply, onSave, isSaved }) => (
   <article className="job-card">
@@ -8,7 +17,7 @@ export const JobCard = ({ job, onApply, onSave, isSaved }) => (
         <p className="job-card__eyebrow">{job.company}</p>
         <h3>{job.title}</h3>
       </div>
-      <span className="job-card__type">{job.type}</span>
+      <Badge label={job.type} variant={TYPE_VARIANT[job.type] ?? 'default'} />
     </div>
 
     <p className="job-card__description">{job.description}</p>
