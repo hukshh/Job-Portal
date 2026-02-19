@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { AuthProvider, AuthContext } from './context/AuthContext';
+import { AuthProvider } from './context/AuthContext';
 import { useAuth } from './hooks/useAuth';
 import { ApplicationPanel } from './components/ApplicationPanel';
 import { Header } from './components/Header';
@@ -8,6 +8,7 @@ import { HeroPanel } from './components/HeroPanel';
 import { JobList } from './components/JobList';
 import { SavedJobsPanel } from './components/SavedJobsPanel';
 import { SearchPanel } from './components/SearchPanel';
+import { Spinner } from './components/Spinner';
 import LoginPanel from './components/LoginPanel';
 import ProfilePanel from './components/ProfilePanel';
 import ResumePanel from './components/ResumePanel';
@@ -35,10 +36,8 @@ function AppContent() {
 
   if (loading) {
     return (
-      <div className="app-shell">
-        <div style={{ padding: '40px', textAlign: 'center' }}>
-          <p>Loading...</p>
-        </div>
+      <div className="app-shell app-shell--centered">
+        <Spinner size="lg" />
       </div>
     );
   }
