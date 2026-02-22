@@ -9,15 +9,18 @@ import { JobList } from './components/JobList';
 import { SavedJobsPanel } from './components/SavedJobsPanel';
 import { SearchPanel } from './components/SearchPanel';
 import { Spinner } from './components/Spinner';
+import { Toast } from './components/Toast';
 import LoginPanel from './components/LoginPanel';
 import ProfilePanel from './components/ProfilePanel';
 import ResumePanel from './components/ResumePanel';
 import { jobOpenings } from './data/jobs';
 import { useJobPortal } from './hooks/useJobPortal';
+import { useToast } from './hooks/useToast';
 
 function AppContent() {
   const { isAuthenticated, loading } = useAuth();
   const [currentPage, setCurrentPage] = useState('jobs');
+  const { toast, showToast, hideToast } = useToast();
 
   const {
     searchTerm,
@@ -31,8 +34,17 @@ function AppContent() {
     startApplication,
     submitApplication,
     closeApplication,
-    statusMessage,
   } = useJobPortal(jobOpenings);
+
+  const handleSubmit = (formValues) => {
+    const success = submitApplication(formValues);
+    if (success) {
+      showToast(`Application sent for ${applyingJob?.title}!`, 'success');
+      closeApplication();
+    } else {
+      showToast('Please fill in all required fields.', 'error');
+    }
+  };
 
   if (loading) {
     return (
@@ -73,8 +85,7 @@ function AppContent() {
                 <ApplicationPanel
                   job={applyingJob}
                   onClose={closeApplication}
-                  onSubmit={submitApplication}
-                  statusMessage={statusMessage}
+                  onSubmit={handleSubmit}
                 />
               ) : (
                 <div className="apply-placeholder">
@@ -89,8 +100,9 @@ function AppContent() {
       )}
 
       {currentPage === 'profile' && <ProfilePanel />}
-
       {currentPage === 'resume' && <ResumePanel />}
+
+      <Toast message={toast.message} type={toast.type} onClose={hideToast} />
     </div>
   );
 }
