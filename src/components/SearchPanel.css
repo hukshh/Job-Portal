@@ -48,3 +48,18 @@
 
 
 
+
+.search-panel input:focus {
+  outline: 2px solid var(--primary, #4f46e5);
+  outline-offset: 2px;
+  border-color: var(--primary, #4f46e5);
+}
+
+.filter-row button.active {
+  background: var(--primary, #4f46e5);
+  color: #fff;
+}
+
+.filter-row button:hover:not(.active) {
+  background: var(--surface-alt, #f9fafb);
+}
