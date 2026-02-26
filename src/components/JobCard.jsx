@@ -10,7 +10,7 @@ const TYPE_VARIANT = {
   'Remote': 'info',
 };
 
-export const JobCard = ({ job, onApply, onSave, isSaved }) => (
+export const JobCard = ({ job, onApply, onSave, onView, isSaved }) => (
   <article className="job-card">
     <div className="job-card__header">
       <div>
@@ -40,6 +40,11 @@ export const JobCard = ({ job, onApply, onSave, isSaved }) => (
     )}
 
     <div className="job-card__actions">
+      {onView && (
+        <button type="button" className="ghost" onClick={() => onView(job)}>
+          Details
+        </button>
+      )}
       <button type="button" onClick={() => onApply(job)}>
         Apply
       </button>
