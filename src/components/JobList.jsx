@@ -2,7 +2,7 @@ import { JobCard } from './JobCard';
 import { EmptyState } from './EmptyState';
 import './JobList.css';
 
-export const JobList = ({ jobs, savedJobs, onApply, onSave }) => {
+export const JobList = ({ jobs, savedJobs, onApply, onSave, onView }) => {
   const savedIds = new Set(savedJobs.map((j) => j.id));
 
   if (jobs.length === 0) {
@@ -27,6 +27,7 @@ export const JobList = ({ jobs, savedJobs, onApply, onSave }) => {
           isSaved={savedIds.has(job.id)}
           onApply={onApply}
           onSave={onSave}
+          onView={onView}
         />
       ))}
     </section>
