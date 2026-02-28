@@ -5,6 +5,7 @@ import { useAuth } from './hooks/useAuth';
 import { ApplicationPanel } from './components/ApplicationPanel';
 import { Header } from './components/Header';
 import { HeroPanel } from './components/HeroPanel';
+import { JobDetailModal } from './components/JobDetailModal';
 import { JobList } from './components/JobList';
 import { SavedJobsPanel } from './components/SavedJobsPanel';
 import { SearchPanel } from './components/SearchPanel';
@@ -20,6 +21,7 @@ import { useToast } from './hooks/useToast';
 function AppContent() {
   const { isAuthenticated, loading } = useAuth();
   const [currentPage, setCurrentPage] = useState('jobs');
+  const [viewingJob, setViewingJob] = useState(null);
   const { toast, showToast, hideToast } = useToast();
 
   const {
@@ -78,6 +80,7 @@ function AppContent() {
                 savedJobs={savedJobs}
                 onApply={startApplication}
                 onSave={toggleSaveJob}
+                onView={setViewingJob}
               />
             </div>
             <div className="app-grid__sidebar">
@@ -101,6 +104,13 @@ function AppContent() {
 
       {currentPage === 'profile' && <ProfilePanel />}
       {currentPage === 'resume' && <ResumePanel />}
+
+      <JobDetailModal
+        job={viewingJob}
+        isOpen={!!viewingJob}
+        onClose={() => setViewingJob(null)}
+        onApply={startApplication}
+      />
 
       <Toast message={toast.message} type={toast.type} onClose={hideToast} />
     </div>
