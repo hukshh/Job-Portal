@@ -1,53 +1,40 @@
 import { useState } from 'react';
 import './ApplicationPanel.css';
 
-export const ApplicationPanel = ({
-  job,
-  onClose,
-  onSubmit,
-  statusMessage,
-}) => {
-  const [formValues, setFormValues] = useState({
-    name: '',
-    email: '',
-    note: '',
-  });
+const INITIAL_FORM = { name: '', email: '', phone: '', note: '' };
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export const ApplicationPanel = ({ job, onClose, onSubmit }) => {
+  const [formValues, setFormValues] = useState(INITIAL_FORM);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (field, value) => {
-    setFormValues((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+    setFormValues((prev) => ({ ...prev, [field]: value }));
+    if (errors[field]) {
+      setErrors((prev) => ({ ...prev, [field]: '' }));
+    }
   };
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const validate = () => {
+    const next = {};
+    if (!formValues.name.trim()) next.name = 'Full name is required.';
+    if (!formValues.email.trim()) next.email = 'Email is required.';
+    else if (!EMAIL_RE.test(formValues.email)) next.email = 'Enter a valid email.';
+    return next;
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    // Validate name
-    if (!formValues.name.trim()) {
-      alert('Please enter your full name.');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errs = validate();
+    if (Object.keys(errs).length) {
+      setErrors(errs);
       return;
     }
-    
-    // Validate email format
-    if (!formValues.email.trim()) {
-      alert('Please enter your email address.');
-      return;
-    }
-    
-    if (!validateEmail(formValues.email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-    
     const success = onSubmit(formValues);
     if (success) {
-      setFormValues({ name: '', email: '', note: '' });
+      setFormValues(INITIAL_FORM);
+      setErrors({});
     }
   };
 
@@ -59,29 +46,36 @@ export const ApplicationPanel = ({
           <h3>{job.title}</h3>
           <p>{job.company}</p>
         </div>
-        <button type="button" onClick={onClose} aria-label="Close form">
-          ×
-        </button>
+        <button type="button" onClick={onClose} aria-label="Close form">×</button>
       </div>
 
-      <form onSubmit={handleSubmit} className="application-panel__form">
+      <form onSubmit={handleSubmit} className="application-panel__form" noValidate>
         <label>
-          Full name
+          Full name *
           <input
             type="text"
             value={formValues.name}
-            onChange={(event) => handleChange('name', event.target.value)}
-            required
+            onChange={(e) => handleChange('name', e.target.value)}
           />
+          {errors.name && <span className="field-error">{errors.name}</span>}
         </label>
 
         <label>
-          Email
+          Email *
           <input
             type="email"
             value={formValues.email}
-            onChange={(event) => handleChange('email', event.target.value)}
-            required
+            onChange={(e) => handleChange('email', e.target.value)}
+          />
+          {errors.email && <span className="field-error">{errors.email}</span>}
+        </label>
+
+        <label>
+          Phone (optional)
+          <input
+            type="tel"
+            value={formValues.phone}
+            onChange={(e) => handleChange('phone', e.target.value)}
           />
         </label>
 
@@ -90,19 +84,12 @@ export const ApplicationPanel = ({
           <textarea
             rows="3"
             value={formValues.note}
-            onChange={(event) => handleChange('note', event.target.value)}
+            onChange={(e) => handleChange('note', e.target.value)}
           />
         </label>
-
-        {statusMessage && (
-          <p className="application-panel__status">{statusMessage}</p>
-        )}
 
         <button type="submit">Submit interest</button>
       </form>
     </aside>
   );
 };
-
-
-
