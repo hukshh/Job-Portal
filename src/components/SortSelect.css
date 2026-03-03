@@ -1,0 +1,14 @@
+.sort-select select {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius, 8px);
+  border: 1px solid var(--border, #e5e7eb);
+  background: var(--surface, #fff);
+  color: var(--text-secondary, #374151);
+  cursor: pointer;
+}
+
+.sort-select select:focus {
+  outline: 2px solid var(--primary, #4f46e5);
+  outline-offset: 2px;
+}
