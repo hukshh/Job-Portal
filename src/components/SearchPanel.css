@@ -63,3 +63,14 @@
 .filter-row button:hover:not(.active) {
   background: var(--surface-alt, #f9fafb);
 }
+
+.search-panel__row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.search-panel__row input {
+  flex: 1;
+}

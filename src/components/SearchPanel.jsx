@@ -1,4 +1,5 @@
 import { FILTER_TYPES } from '../constants/jobFilters';
+import { SortSelect } from './SortSelect';
 import './SearchPanel.css';
 
 export const SearchPanel = ({
@@ -6,19 +7,26 @@ export const SearchPanel = ({
   onSearch,
   selectedType,
   onSelectType,
+  sortBy,
+  onSortChange,
   filters = FILTER_TYPES,
 }) => (
   <section className="search-panel">
-    <label htmlFor="search-input" className="sr-only">
-      Search by role, company, or keyword
-    </label>
-    <input
-      id="search-input"
-      type="text"
-      value={searchTerm}
-      placeholder="Search by role, company, or keyword"
-      onChange={(event) => onSearch(event.target.value)}
-    />
+    <div className="search-panel__row">
+      <label htmlFor="search-input" className="sr-only">
+        Search by role, company, or keyword
+      </label>
+      <input
+        id="search-input"
+        type="text"
+        value={searchTerm}
+        placeholder="Search by role, company, or keyword"
+        onChange={(e) => onSearch(e.target.value)}
+      />
+      {onSortChange && (
+        <SortSelect value={sortBy} onChange={onSortChange} />
+      )}
+    </div>
 
     <div className="filter-row">
       {filters.map((filter) => (
@@ -34,4 +42,3 @@ export const SearchPanel = ({
     </div>
   </section>
 );
-
