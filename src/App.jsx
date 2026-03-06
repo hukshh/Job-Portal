@@ -25,10 +25,9 @@ function AppContent() {
   const { toast, showToast, hideToast } = useToast();
 
   const {
-    searchTerm,
-    setSearchTerm,
-    jobType,
-    setJobType,
+    searchTerm, setSearchTerm,
+    jobType, setJobType,
+    sortBy, setSortBy,
     filteredJobs,
     savedJobs,
     toggleSaveJob,
@@ -56,9 +55,7 @@ function AppContent() {
     );
   }
 
-  if (!isAuthenticated) {
-    return <LoginPanel />;
-  }
+  if (!isAuthenticated) return <LoginPanel />;
 
   return (
     <div className="app-shell">
@@ -72,6 +69,8 @@ function AppContent() {
             onSearch={setSearchTerm}
             selectedType={jobType}
             onSelectType={setJobType}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
           />
           <div className="app-grid">
             <div className="app-grid__primary">
@@ -111,7 +110,6 @@ function AppContent() {
         onClose={() => setViewingJob(null)}
         onApply={startApplication}
       />
-
       <Toast message={toast.message} type={toast.type} onClose={hideToast} />
     </div>
   );
