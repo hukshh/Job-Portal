@@ -148,3 +148,16 @@
   color: var(--text-muted, #888);
   margin: 0 0 0.5rem;
 }
+
+.job-card {
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.job-card:hover {
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
+  transform: translateY(-2px);
+}
+
+.job-card__actions button {
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
