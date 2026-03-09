@@ -119,3 +119,33 @@ export const featuredCompanies = [
   'Northwind Studio',
   'Sierra Systems',
 ];
+
+// Added Mar 9 — more variety for testing filters
+export const additionalJobs = [
+  {
+    id: 'job-9',
+    title: 'QA Engineer',
+    company: 'TestPilot',
+    location: 'Remote',
+    mode: 'Remote',
+    type: 'Full-time',
+    level: 'Mid-level',
+    salary: '$80k - $100k',
+    tags: ['Selenium', 'Jest', 'QA'],
+    description: 'Own test automation strategy, write comprehensive test suites, and work with devs to triage bugs.',
+    postedAt: '2026-03-05',
+  },
+  {
+    id: 'job-10',
+    title: 'Technical Writer',
+    company: 'DocFlow',
+    location: 'Remote',
+    mode: 'Remote',
+    type: 'Part-time',
+    level: 'Junior',
+    salary: '$35/hr',
+    tags: ['Documentation', 'Markdown', 'API Docs'],
+    description: 'Write clear developer docs, API references, and onboarding guides for a dev-tools platform.',
+    postedAt: '2026-03-07',
+  },
+];
