@@ -9,8 +9,7 @@ export const jobOpenings = [
     level: 'Mid-level',
     salary: '$85k - $105k',
     tags: ['React', 'TypeScript', 'UI'],
-    description:
-      'Own core UI flows, build accessible components, and partner with design to ship polished product improvements.',
+    description: 'Own core UI flows, build accessible components, and partner with design to ship polished product improvements.',
     postedAt: '2026-01-28',
   },
   {
@@ -23,8 +22,7 @@ export const jobOpenings = [
     level: 'Senior',
     salary: '$110k - $135k',
     tags: ['Figma', 'Design Systems', 'Research'],
-    description:
-      'Shape the end-to-end experience for our candidate journey product and coach junior designers.',
+    description: 'Shape the end-to-end experience for our candidate journey product and coach junior designers.',
     postedAt: '2026-01-25',
   },
   {
@@ -37,8 +35,7 @@ export const jobOpenings = [
     level: 'Internship',
     salary: '$25/hr',
     tags: ['People Ops', 'Analytics'],
-    description:
-      'Support candidate screening, maintain hiring dashboards, and learn structured interview practices.',
+    description: 'Support candidate screening, maintain hiring dashboards, and learn structured interview practices.',
     postedAt: '2026-01-30',
   },
   {
@@ -51,8 +48,7 @@ export const jobOpenings = [
     level: 'Mid-level',
     salary: '$100k - $130k',
     tags: ['Node.js', 'APIs', 'PostgreSQL'],
-    description:
-      'Build resilient APIs, improve platform reliability, and collaborate closely with product squads.',
+    description: 'Build resilient APIs, improve platform reliability, and collaborate closely with product squads.',
     postedAt: '2026-01-27',
   },
   {
@@ -65,8 +61,7 @@ export const jobOpenings = [
     level: 'Junior',
     salary: '$45/hr',
     tags: ['Campaigns', 'SQL', 'Dashboards'],
-    description:
-      'Review campaign performance, craft growth experiments, and present concise readouts to stakeholders.',
+    description: 'Review campaign performance, craft growth experiments, and present concise readouts to stakeholders.',
     postedAt: '2026-01-29',
   },
   {
@@ -79,8 +74,7 @@ export const jobOpenings = [
     level: 'Internship',
     salary: '$30/hr',
     tags: ['Python', 'Automation', 'Testing'],
-    description:
-      'Pair with mentors to automate QA workflows, write test utilities, and demo findings each sprint.',
+    description: 'Pair with mentors to automate QA workflows, write test utilities, and demo findings each sprint.',
     postedAt: '2026-01-28',
   },
   {
@@ -93,8 +87,7 @@ export const jobOpenings = [
     level: 'Senior',
     salary: '$120k - $150k',
     tags: ['AWS', 'Docker', 'CI/CD'],
-    description:
-      'Own cloud infrastructure, streamline deployment pipelines, and improve observability across services.',
+    description: 'Own cloud infrastructure, streamline deployment pipelines, and improve observability across services.',
     postedAt: '2026-02-01',
   },
   {
@@ -107,21 +100,9 @@ export const jobOpenings = [
     level: 'Junior',
     salary: '$75k - $90k',
     tags: ['SQL', 'Python', 'Tableau'],
-    description:
-      'Translate raw data into clear insights — build dashboards, run ad-hoc analyses, and present findings weekly.',
+    description: 'Translate raw data into clear insights — build dashboards, run ad-hoc analyses, and present findings weekly.',
     postedAt: '2026-02-03',
   },
-];
-
-// TODO: pull these from an API eventually — for now hardcoded is fine
-export const featuredCompanies = [
-  'Bright Labs',
-  'Northwind Studio',
-  'Sierra Systems',
-];
-
-// Added Mar 9 — more variety for testing filters
-export const additionalJobs = [
   {
     id: 'job-9',
     title: 'QA Engineer',
@@ -149,3 +130,5 @@ export const additionalJobs = [
     postedAt: '2026-03-07',
   },
 ];
+
+export const featuredCompanies = ['Bright Labs', 'Northwind Studio', 'Sierra Systems'];
