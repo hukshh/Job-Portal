@@ -1,0 +1,27 @@
+.card {
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius, 8px);
+}
+
+.card--elevated {
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.08));
+  border: none;
+}
+
+.card__header {
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  font-weight: 600;
+}
+
+.card__body {
+  padding: 1.25rem;
+}
+
+.card__footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid var(--border, #e5e7eb);
+  background: var(--surface-alt, #f9fafb);
+  border-radius: 0 0 var(--radius, 8px) var(--radius, 8px);
+}
