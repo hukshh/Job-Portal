@@ -1,0 +1,29 @@
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius, 8px);
+  padding: 1rem 1.25rem;
+}
+
+.stat-card__icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.stat-card__value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary, #111827);
+  margin: 0 0 0.15rem;
+}
+
+.stat-card__label {
+  font-size: 0.8rem;
+  color: var(--text-muted, #9ca3af);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
