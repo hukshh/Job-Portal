@@ -123,3 +123,21 @@
   color: #dc2626;
   margin-top: 0.25rem;
 }
+
+/* quick note — this panel needs a max-height + scroll on small viewports */
+@media (max-height: 700px) {
+  .application-panel {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+.application-panel__form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary, #374151);
+  gap: 0.3rem;
+  margin-bottom: 0.9rem;
+}
