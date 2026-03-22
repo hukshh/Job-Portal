@@ -1,4 +1,5 @@
 import { FILTER_TYPES } from '../constants/jobFilters';
+import { Chip } from './Chip';
 import { SortSelect } from './SortSelect';
 import './SearchPanel.css';
 
@@ -20,24 +21,20 @@ export const SearchPanel = ({
         id="search-input"
         type="text"
         value={searchTerm}
-        placeholder="Search by role, company, or keyword"
+        placeholder="🔍  Search by role, company, or keyword"
         onChange={(e) => onSearch(e.target.value)}
       />
-      {onSortChange && (
-        <SortSelect value={sortBy} onChange={onSortChange} />
-      )}
+      {onSortChange && <SortSelect value={sortBy} onChange={onSortChange} />}
     </div>
 
     <div className="filter-row">
       {filters.map((filter) => (
-        <button
+        <Chip
           key={filter}
-          className={filter === selectedType ? 'active' : ''}
+          label={filter}
+          active={filter === selectedType}
           onClick={() => onSelectType(filter)}
-          type="button"
-        >
-          {filter}
-        </button>
+        />
       ))}
     </div>
   </section>
