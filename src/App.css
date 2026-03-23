@@ -74,3 +74,20 @@
   justify-content: center;
   min-height: 100vh;
 }
+
+/* ── Responsive layout ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-grid__sidebar {
+    order: -1; /* sidebar on top on mobile — maybe rethink this */
+  }
+}
+
+@media (max-width: 480px) {
+  .apply-placeholder {
+    display: none;
+  }
+}
