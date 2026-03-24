@@ -1,0 +1,25 @@
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.divider__line {
+  flex: 1;
+  height: 1px;
+  background: var(--border, #e5e7eb);
+}
+
+.divider__line--full {
+  flex: 1;
+}
+
+.divider__label {
+  font-size: 0.78rem;
+  color: var(--text-muted, #9ca3af);
+  white-space: nowrap;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
