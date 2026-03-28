@@ -1,0 +1,66 @@
+.filter-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 700;
+  display: flex;
+  align-items: flex-end;
+}
+
+.filter-drawer {
+  background: var(--surface, #fff);
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+  padding: 1rem 1.5rem 2rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.filter-drawer__handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border, #e5e7eb);
+  border-radius: 99px;
+  margin: 0 auto 1rem;
+}
+
+.filter-drawer__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.filter-drawer__section-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted, #9ca3af);
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.filter-drawer__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-drawer__select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: var(--radius, 8px);
+  font-size: 0.9rem;
+}
+
+.filter-drawer__close-btn {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 0.7rem;
+  background: var(--primary, #4f46e5);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius, 8px);
+  font-weight: 600;
+  cursor: pointer;
+}
