@@ -118,3 +118,22 @@ button, a, input {
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
 }
+
+/* ── Scroll behavior ───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Selection color ───────────────────────────────────────── */
+::selection {
+  background: var(--primary-light, #ede9fe);
+  color: var(--primary, #4f46e5);
+}
+
+/* ── Reduced motion support ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
