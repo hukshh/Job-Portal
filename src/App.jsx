@@ -71,6 +71,7 @@ function AppContent() {
             onSelectType={setJobType}
             sortBy={sortBy}
             onSortChange={setSortBy}
+            resultCount={filteredJobs.length}
           />
           <div className="app-grid">
             <div className="app-grid__primary">
