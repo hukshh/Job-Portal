@@ -297,3 +297,15 @@
     font-size: 1.4rem;
   }
 }
+
+/* subtle animated gradient on hero — hopefully not too distracting */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-panel {
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+}
