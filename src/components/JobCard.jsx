@@ -1,4 +1,5 @@
 import { Badge } from './Badge';
+import { CompanyLogo } from './CompanyLogo';
 import { timeAgo } from '../utils/dateUtils';
 import './JobCard.css';
 
@@ -13,7 +14,8 @@ const TYPE_VARIANT = {
 export const JobCard = ({ job, onApply, onSave, onView, isSaved }) => (
   <article className="job-card">
     <div className="job-card__header">
-      <div>
+      <CompanyLogo company={job.company} size={42} />
+      <div className="job-card__title-block">
         <p className="job-card__eyebrow">{job.company}</p>
         <h3>{job.title}</h3>
       </div>
@@ -41,13 +43,9 @@ export const JobCard = ({ job, onApply, onSave, onView, isSaved }) => (
 
     <div className="job-card__actions">
       {onView && (
-        <button type="button" className="ghost" onClick={() => onView(job)}>
-          Details
-        </button>
+        <button type="button" className="ghost" onClick={() => onView(job)}>Details</button>
       )}
-      <button type="button" onClick={() => onApply(job)}>
-        Apply
-      </button>
+      <button type="button" onClick={() => onApply(job)}>Apply</button>
       <button
         type="button"
         className={isSaved ? 'saved' : 'ghost'}

@@ -161,3 +161,13 @@
 .job-card__actions button {
   transition: background 0.15s ease, opacity 0.15s ease;
 }
+
+.job-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.job-card__title-block {
+  flex: 1;
+}
