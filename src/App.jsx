@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import { useAuth } from './hooks/useAuth';
 import { ApplicationPanel } from './components/ApplicationPanel';
+import { BackToTop } from './components/BackToTop';
 import { Header } from './components/Header';
 import { HeroPanel } from './components/HeroPanel';
 import { JobDetailModal } from './components/JobDetailModal';
@@ -111,6 +112,7 @@ function AppContent() {
         onClose={() => setViewingJob(null)}
         onApply={startApplication}
       />
+      <BackToTop />
       <Toast message={toast.message} type={toast.type} onClose={hideToast} />
     </div>
   );
