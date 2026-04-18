@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import { useAuth } from './hooks/useAuth';
 import { ApplicationPanel } from './components/ApplicationPanel';
 import { BackToTop } from './components/BackToTop';
+import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { HeroPanel } from './components/HeroPanel';
 import { JobDetailModal } from './components/JobDetailModal';
@@ -106,6 +107,7 @@ function AppContent() {
       {currentPage === 'profile' && <ProfilePanel />}
       {currentPage === 'resume' && <ResumePanel />}
 
+      <Footer />
       <JobDetailModal
         job={viewingJob}
         isOpen={!!viewingJob}
